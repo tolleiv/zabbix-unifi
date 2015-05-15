@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zabbix_export>
     <version>2.0</version>
-    <date>2015-04-13T12:56:44Z</date>
+    <date>2015-05-15T08:45:13Z</date>
     <groups>
         <group>
             <name>Templates</name>
@@ -30,7 +30,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, num_sta, sum]</key>
+                    <key>unifi.site.state[ap, num_sta, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -69,7 +69,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, guest-num_sta, sum]</key>
+                    <key>unifi.site.state[ap, guest-num_sta, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -108,7 +108,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, locating, count]</key>
+                    <key>unifi.site.state[ap, locating, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -147,7 +147,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, adopted, count]</key>
+                    <key>unifi.site.state[ap, adopted, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>600</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -186,7 +186,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, isolated, count]</key>
+                    <key>unifi.site.state[ap, isolated, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -225,7 +225,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, items_num, count]</key>
+                    <key>unifi.site.state[ap, items_num, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>3600</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -264,7 +264,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[wlan, items_num, count]</key>
+                    <key>unifi.site.state[wlan, items_num, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -303,7 +303,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, user-num_sta, sum]</key>
+                    <key>unifi.site.state[ap, user-num_sta, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>60</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -342,7 +342,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>1</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, rx_bytes, sum]</key>
+                    <key>unifi.site.state[ap, rx_bytes, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -381,7 +381,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>0</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap,stat.tx_dropped, sum]</key>
+                    <key>unifi.site.state[ap,stat.tx_dropped, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -420,7 +420,7 @@ a lot of beer</description>
                     <snmp_community/>
                     <multiplier>1</multiplier>
                     <snmp_oid/>
-                    <key>unifi.site.state[ap, tx_bytes, sum]</key>
+                    <key>unifi.site.state[ap, tx_bytes, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>30</delay>
                     <history>7</history>
                     <trends>90</trends>
@@ -458,9 +458,7 @@ a lot of beer</description>
                 <discovery_rule>
                     <name>AP discovery</name>
                     <type>0</type>
-                    <snmp_community/>
-                    <snmp_oid/>
-                    <key>unifi.discovery[ap, {$USERNAME}, {$PASSWORD}]</key>
+                    <key>unifi.discovery[ap, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     <delay>3600</delay>
                     <status>0</status>
                     <allowed_hosts/>
@@ -490,7 +488,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, num_sta]</key>
+                            <key>unifi.ap.state[{#ID}, num_sta, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -529,7 +527,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, version]</key>
+                            <key>unifi.ap.state[{#ID}, version, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>3600</delay>
                             <history>1</history>
                             <trends>365</trends>
@@ -568,7 +566,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, guest-num_sta]</key>
+                            <key>unifi.ap.state[{#ID}, guest-num_sta, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -607,7 +605,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, model]</key>
+                            <key>unifi.ap.state[{#ID}, model, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>3600</delay>
                             <history>1</history>
                             <trends>365</trends>
@@ -646,7 +644,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID},  serial]</key>
+                            <key>unifi.ap.state[{#ID},  serial, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>3600</delay>
                             <history>1</history>
                             <trends>365</trends>
@@ -685,7 +683,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, ng_tx_retries]</key>
+                            <key>unifi.ap.state[{#ID}, ng_tx_retries, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -724,7 +722,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, ng_ast_txto]</key>
+                            <key>unifi.ap.state[{#ID}, ng_ast_txto, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -763,7 +761,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, user-num_sta]</key>
+                            <key>unifi.ap.state[{#ID}, user-num_sta, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -802,7 +800,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, ng-channel]</key>
+                            <key>unifi.ap.state[{#ID}, ng-channel, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>120</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -841,7 +839,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>1</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, rx_bytes]</key>
+                            <key>unifi.ap.state[{#ID}, rx_bytes, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -880,7 +878,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, stat.tx_dropped]</key>
+                            <key>unifi.ap.state[{#ID}, stat.tx_dropped, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -919,7 +917,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>1</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, tx_bytes]</key>
+                            <key>unifi.ap.state[{#ID}, tx_bytes, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -958,7 +956,7 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, ng-tx_power]</key>
+                            <key>unifi.ap.state[{#ID}, ng-tx_power, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                             <delay>120</delay>
                             <history>7</history>
                             <trends>90</trends>
@@ -997,8 +995,8 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, isolated]</key>
-                            <delay>60</delay>
+                            <key>unifi.ap.state[{#ID}, adopted, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
+                            <delay>600</delay>
                             <history>7</history>
                             <trends>90</trends>
                             <status>0</status>
@@ -1036,8 +1034,8 @@ a lot of beer</description>
                             <snmp_community/>
                             <multiplier>0</multiplier>
                             <snmp_oid/>
-                            <key>unifi.ap.state[{#ID}, adopted]</key>
-                            <delay>600</delay>
+                            <key>unifi.ap.state[{#ID}, isolated, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
+                            <delay>60</delay>
                             <history>7</history>
                             <trends>90</trends>
                             <status>0</status>
@@ -1072,7 +1070,7 @@ a lot of beer</description>
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, version].change()}=1</expression>
+                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, version, {$UNIFI_USER}, {$UNIFI_PASS}].change()}=1</expression>
                             <name>AP {#ALIAS} firmware version is changed</name>
                             <url/>
                             <status>0</status>
@@ -1081,7 +1079,7 @@ a lot of beer</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, isolated].min(1m)}=1</expression>
+                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, isolated, {$UNIFI_USER}, {$UNIFI_PASS}].min(1m)}=1</expression>
                             <name>AP {#ALIAS} is isolated &gt; 1 min</name>
                             <url/>
                             <status>0</status>
@@ -1090,7 +1088,7 @@ a lot of beer</description>
                             <type>0</type>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, adopted].max(1m)}=0</expression>
+                            <expression>{Template_UBNT_UniFi:unifi.ap.state[{#ID}, adopted, {$UNIFI_USER}, {$UNIFI_PASS}].max(1m)}=0</expression>
                             <name>AP {#ALIAS} is not adopted &gt; 1m</name>
                             <url/>
                             <status>0</status>
@@ -1127,7 +1125,7 @@ a lot of beer</description>
                                     <type>0</type>
                                     <item>
                                         <host>Template_UBNT_UniFi</host>
-                                        <key>unifi.ap.state[{#ID}, user-num_sta]</key>
+                                        <key>unifi.ap.state[{#ID}, user-num_sta, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1139,7 +1137,7 @@ a lot of beer</description>
                                     <type>0</type>
                                     <item>
                                         <host>Template_UBNT_UniFi</host>
-                                        <key>unifi.ap.state[{#ID}, guest-num_sta]</key>
+                                        <key>unifi.ap.state[{#ID}, guest-num_sta, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1171,7 +1169,7 @@ a lot of beer</description>
                                     <type>0</type>
                                     <item>
                                         <host>Template_UBNT_UniFi</host>
-                                        <key>unifi.ap.state[{#ID}, rx_bytes]</key>
+                                        <key>unifi.ap.state[{#ID}, rx_bytes, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1183,7 +1181,7 @@ a lot of beer</description>
                                     <type>0</type>
                                     <item>
                                         <host>Template_UBNT_UniFi</host>
-                                        <key>unifi.ap.state[{#ID}, stat.tx_dropped]</key>
+                                        <key>unifi.ap.state[{#ID}, stat.tx_dropped, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                                     </item>
                                 </graph_item>
                                 <graph_item>
@@ -1195,7 +1193,7 @@ a lot of beer</description>
                                     <type>0</type>
                                     <item>
                                         <host>Template_UBNT_UniFi</host>
-                                        <key>unifi.ap.state[{#ID}, tx_bytes]</key>
+                                        <key>unifi.ap.state[{#ID}, tx_bytes, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                                     </item>
                                 </graph_item>
                             </graph_items>
@@ -1204,14 +1202,23 @@ a lot of beer</description>
                     <host_prototypes/>
                 </discovery_rule>
             </discovery_rules>
-            <macros/>
+            <macros>
+                <macro>
+                    <macro>{$UNIFI_PASS}</macro>
+                    <value>password</value>
+                </macro>
+                <macro>
+                    <macro>{$UNIFI_USER}</macro>
+                    <value>admin</value>
+                </macro>
+            </macros>
             <templates/>
             <screens/>
         </template>
     </templates>
     <triggers>
         <trigger>
-            <expression>{Template_UBNT_UniFi:unifi.site.state[ap, isolated, count].min(1m)}&gt;0</expression>
+            <expression>{Template_UBNT_UniFi:unifi.site.state[ap, isolated, count, {$UNIFI_USER}, {$UNIFI_PASS}].min(1m)}&gt;0</expression>
             <name>Isolated APs exists on {HOST.HOST}</name>
             <url/>
             <status>0</status>
@@ -1221,7 +1228,7 @@ a lot of beer</description>
             <dependencies/>
         </trigger>
         <trigger>
-            <expression>{Template_UBNT_UniFi:unifi.site.state[ap, adopted, count].max(1m)}&lt;{Template_UBNT_UniFi:unifi.site.state[ap, items_num, count].max(1m)}</expression>
+            <expression>{Template_UBNT_UniFi:unifi.site.state[ap, adopted, count, {$UNIFI_USER}, {$UNIFI_PASS}].max(1m)}&lt;{Template_UBNT_UniFi:unifi.site.state[ap, items_num, count, {$UNIFI_USER}, {$UNIFI_PASS}].max(1m)}</expression>
             <name>Nonadopted APs exists on {HOST.HOST}</name>
             <url/>
             <status>0</status>
@@ -1259,7 +1266,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, adopted, count]</key>
+                        <key>unifi.site.state[ap, adopted, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -1271,7 +1278,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, isolated, count]</key>
+                        <key>unifi.site.state[ap, isolated, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -1283,7 +1290,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, locating, count]</key>
+                        <key>unifi.site.state[ap, locating, count, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -1315,7 +1322,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, user-num_sta, sum]</key>
+                        <key>unifi.site.state[ap, user-num_sta, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -1327,7 +1334,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, guest-num_sta, sum]</key>
+                        <key>unifi.site.state[ap, guest-num_sta, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
             </graph_items>
@@ -1359,7 +1366,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap,stat.tx_dropped, sum]</key>
+                        <key>unifi.site.state[ap,stat.tx_dropped, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -1371,7 +1378,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, tx_bytes, sum]</key>
+                        <key>unifi.site.state[ap, tx_bytes, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
                 <graph_item>
@@ -1383,7 +1390,7 @@ a lot of beer</description>
                     <type>0</type>
                     <item>
                         <host>Template_UBNT_UniFi</host>
-                        <key>unifi.site.state[ap, rx_bytes, sum]</key>
+                        <key>unifi.site.state[ap, rx_bytes, sum, {$UNIFI_USER}, {$UNIFI_PASS}]</key>
                     </item>
                 </graph_item>
             </graph_items>
